@@ -5,13 +5,10 @@ const BondConfirmation = () => {
   const [requirements, setRequirements] = useState("");
   const [tokenValue, setTokenValue] = useState(0);
   useEffect(() => {
-    setRequirements(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus sem justo, leo quam posuere platea rhoncus aenean massa. Semper ullamcorper in sed sollicitudin suspendisse."
-    );
+    setRequirements("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus sem justo, leo quam posuere platea rhoncus aenean massa. Semper ullamcorper in sed sollicitudin suspendisse.");
     setTokenValue(2.75);
   }, []);
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <View style={styles.header}>
         <View>
           <Text style={styles.subText}>Current Token</Text>
@@ -34,14 +31,9 @@ const BondConfirmation = () => {
           <Text style={styles.fnt12}>2.803.23$</Text>
         </View>
       </View>
-      <InputToken
-        value={tokenValue}
-        onChange={(x) => setTokenValue(x)}
-        step={0.1}
-      />
+      <InputToken value={tokenValue} onChange={x => setTokenValue(x)} step={0.1} />
       <Button buttonText={"Confirm"} />
-    </View>
-  );
+    </View>;
 };
 
 const styles = StyleSheet.create({
@@ -112,19 +104,20 @@ const styles = StyleSheet.create({
     fontSize: 12
   }
 });
-
 export default BondConfirmation;
 
-const InputToken = (props) => {
+const InputToken = props => {
   const step = props.step;
-  const decrement = (value) => {
-    return (value -= step);
+
+  const decrement = value => {
+    return value -= step;
   };
-  const increment = (value) => {
-    return (value += step);
+
+  const increment = value => {
+    return value += step;
   };
-  return (
-    <View style={inputTokenStyles.container}>
+
+  return <View style={inputTokenStyles.container}>
       <Text>Input Token</Text>
       <View style={inputTokenStyles.tokenValueContainer}>
         <Pressable onPress={() => props.onChange(decrement(props.value))}>
@@ -135,9 +128,9 @@ const InputToken = (props) => {
           <Image source={require("./assets/incrementIcon.png")} />
         </Pressable>
       </View>
-    </View>
-  );
+    </View>;
 };
+
 const inputTokenStyles = StyleSheet.create({
   container: {
     marginVertical: 10
@@ -156,7 +149,8 @@ const inputTokenStyles = StyleSheet.create({
     fontSize: 18
   }
 });
-const Button = (params) => {
+
+const Button = params => {
   const btnStyle = {
     backgroundColor: params.outline ? "#fff" : "#000",
     borderColor: params.outline ? "#000" : "#fff",
@@ -165,14 +159,12 @@ const Button = (params) => {
   const btnText = {
     color: params.outline ? "#000" : "#fff"
   };
-  return (
-    <View style={buttonStyles.btnContainer}>
+  return <View style={buttonStyles.btnContainer}>
       <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
         <Text style={[buttonStyles.btnText, btnText]}>{params.buttonText}</Text>
         <View style={styles.childrenContainer}>{params.children}</View>
       </Pressable>
-    </View>
-  );
+    </View>;
 };
 
 const buttonStyles = StyleSheet.create({

@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-
 const styles = StyleSheet.create({
   heading: {
     height: 60,
@@ -10,7 +9,6 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
-
 export default {
   styles: styles
 };
