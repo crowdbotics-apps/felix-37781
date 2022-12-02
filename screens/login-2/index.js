@@ -3,26 +3,23 @@ import { Text, View, TouchableOpacity, Image, TouchableHighlight, TextInput, Sty
 
 const Login2 = () => {
   const [selected, setSelected] = useState(false);
+
   const onPress = () => {
     setSelected(!selected);
   };
-  return (
-    <View style={styles.container}>
+
+  return <View style={styles.container}>
       <View style={styles.heading}>
         <Text style={styles.headingText}>Log in</Text>
       </View>
       <View>
         <View style={styles.emailContainer}>
           <Text style={styles.mr10}>Email address</Text>
-          <Input
-            placeholder='Email'
-          />
+          <Input placeholder='Email' />
         </View>
         <View style={styles.mb20}>
           <Text style={styles.mr10}>Password</Text>
-          <Input
-            placeholder='Password'
-          />
+          <Input placeholder='Password' />
         </View>
         <View style={styles.forgotPassword}>
           <View>
@@ -43,22 +40,13 @@ const Login2 = () => {
         </View>
         <View style={styles.imageContainer}>
           <View style={styles.iconContainer}>
-            <Image
-              source={require("./assets/appleIcon.png")}
-              style={styles.icon}
-            />
+            <Image source={require("./assets/appleIcon.png")} style={styles.icon} />
           </View>
           <View style={styles.iconContainer}>
-            <Image
-              source={require("./assets/googleIcon.png")}
-              style={styles.icon}
-            />
+            <Image source={require("./assets/googleIcon.png")} style={styles.icon} />
           </View>
           <View style={styles.iconContainer}>
-            <Image
-              source={require("./assets/fbIcon.png")}
-              style={styles.icon}
-            />
+            <Image source={require("./assets/fbIcon.png")} style={styles.icon} />
           </View>
         </View>
       </View>
@@ -68,9 +56,9 @@ const Login2 = () => {
           <Text>Sign Up</Text>
         </TouchableOpacity>
       </View>
-    </View>
-  );
+    </View>;
 };
+
 const styles = StyleSheet.create({
   container: {
     padding: 20,
@@ -155,22 +143,21 @@ const styles = StyleSheet.create({
     color: "#6B6B6B"
   }
 });
-
 export default Login2;
 
-const Button = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor='#DDDDDD'>
+const Button = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor='#DDDDDD'>
       <View style={[btnStyles.button, {
-        backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
-        height: props.height ? props.height : 49,
-        borderWidth: props.borderWidth ? props.borderWidth : 0,
-        borderColor: props.borderColor ? props.borderColor : "#000000"
-      }]}>
-        <Text style={[btnStyles.text, { color: props.color ? props.color : "#ffffff" }]}>{props.children}</Text>
+      backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
+      height: props.height ? props.height : 49,
+      borderWidth: props.borderWidth ? props.borderWidth : 0,
+      borderColor: props.borderColor ? props.borderColor : "#000000"
+    }]}>
+        <Text style={[btnStyles.text, {
+        color: props.color ? props.color : "#ffffff"
+      }]}>{props.children}</Text>
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
 
 const btnStyles = StyleSheet.create({
@@ -186,43 +173,49 @@ const btnStyles = StyleSheet.create({
   }
 });
 
-const CheckBox = ({ selected, onPress, text }) => (
-  <TouchableOpacity onPress={onPress}>
+const CheckBox = ({
+  selected,
+  onPress,
+  text
+}) => <TouchableOpacity onPress={onPress}>
     <View style={checkBoxStyles.checkBoxContainer}>
       <View style={checkBoxStyles.iconContainer}>
-        {selected && (
-          <Image
-            source={require("./assets/checkbox.png")}
-            style={checkBoxStyles.icon}
-          />)}
+        {selected && <Image source={require("./assets/checkbox.png")} style={checkBoxStyles.icon} />}
 
       </View>
       <Text style={checkBoxStyles.iconText}>{text}</Text>
     </View>
-  </TouchableOpacity>
-);
+  </TouchableOpacity>;
 
 const checkBoxStyles = StyleSheet.create({
-  checkBoxContainer: { display: "flex", flexDirection: "row" },
-  iconContainer: { height: 18, width: 18, borderColor: "#000000", borderWidth: 2, borderRadius: 5, display: "flex", justifyContent: "center", alignItems: "center" },
-  icon: { height: 16, width: 16 },
-  iconText: { marginLeft: 10 }
+  checkBoxContainer: {
+    display: "flex",
+    flexDirection: "row"
+  },
+  iconContainer: {
+    height: 18,
+    width: 18,
+    borderColor: "#000000",
+    borderWidth: 2,
+    borderRadius: 5,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  icon: {
+    height: 16,
+    width: 16
+  },
+  iconText: {
+    marginLeft: 10
+  }
 });
 
-const Input = (props) => {
-  return (
-    <View>
-      <TextInput
-        style={textStyles.input}
-        placeholder={props.placeholder}
-        value={props.value}
-        onChangeText={(num) => props.setValue(num)}
-        placeholderTextColor='#ddd'
-        editable={props.editable !== false}
-      />
+const Input = props => {
+  return <View>
+      <TextInput style={textStyles.input} placeholder={props.placeholder} value={props.value} onChangeText={num => props.setValue(num)} placeholderTextColor='#ddd' editable={props.editable !== false} />
       {props.errorText ? <Text style={textStyles.error}>{props.errorText}</Text> : null}
-    </View>
-  );
+    </View>;
 };
 
 const textStyles = StyleSheet.create({
