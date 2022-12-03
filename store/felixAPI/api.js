@@ -33,8 +33,26 @@ function rest_auth_user_read(payload) {
 function rest_auth_user_update(payload) {
   return felixAPI.put(`/rest-auth/user/`, payload.data)
 }
+function api_v1_review_partial_update(payload) {
+  return felixAPI.patch(`/api/v1/review/${payload.id}/`, payload.data)
+}
+function api_v1_review_read(payload) {
+  return felixAPI.get(`/api/v1/review/${payload.id}/`)
+}
+function api_v1_review_delete(payload) {
+  return felixAPI.delete(`/api/v1/review/${payload.id}/`)
+}
+function api_v1_review_update(payload) {
+  return felixAPI.put(`/api/v1/review/${payload.id}/`, payload.data)
+}
 function rest_auth_registration_verify_email_create(payload) {
   return felixAPI.post(`/rest-auth/registration/verify-email/`, payload.data)
+}
+function api_v1_review_create(payload) {
+  return felixAPI.post(`/api/v1/review/`, payload.data)
+}
+function api_v1_review_list(payload) {
+  return felixAPI.get(`/api/v1/review/`)
 }
 function rest_auth_password_reset_create(payload) {
   return felixAPI.post(`/rest-auth/password/reset/`, payload.data)
@@ -53,7 +71,13 @@ export const apiService = {
   rest_auth_user_partial_update,
   rest_auth_user_read,
   rest_auth_user_update,
+  api_v1_review_partial_update,
+  api_v1_review_read,
+  api_v1_review_delete,
+  api_v1_review_update,
   rest_auth_registration_verify_email_create,
+  api_v1_review_create,
+  api_v1_review_list,
   rest_auth_password_reset_create,
   rest_auth_registration_create
 }
